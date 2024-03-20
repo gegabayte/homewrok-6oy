@@ -28,12 +28,12 @@ function App() {
   }
 
   function handleTrush (item) {
-    let isDelit = alert('Rostan ham ochirmohchiomsiz');
+    let isDelit = confirm('Rostan ham ochirmohchiomsiz');
 
     if (isDelit) {
       let copied = JSON.parse(JSON.stringify(users));
-      copied = copied.filter(el => {
-        return  el.id != item.id
+      copied = copied.filter(user => {
+        return  user.id != item.id
       })
 
       localStorage.setItem('users' , JSON.stringify(copied));
@@ -216,7 +216,7 @@ function App() {
                       <td>{user.nat}</td>
                       <td>
                         <div className="icons">
-                          <FaRegTrashAlt onClick={() => {handleTrush(el)}} style={{ cursor: 'pointer', marginRight: '10px' }} />
+                          <FaRegTrashAlt onClick={() => {handleTrush(user)}} style={{ cursor: 'pointer', marginRight: '10px' }} />
                           <FaRegEdit onClick={() => {handleUpdateItem(user)}} style={{ cursor: 'pointer' }} />
                         </div>
                       </td>
